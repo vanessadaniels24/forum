@@ -1,83 +1,79 @@
-const Freelancer = [
-    { name: 'Alice',
-     occupation: 'Writer',
-      startingPrice: 30 },
-
-    { name: 'Bob', 
-    occupation: 'Teacher',
-     startingPrice: 50 },
-    
-     { name: 'Carol', 
-    occupation: 'Programmer',
-     startingPrice: 70 }
-    ]
-    let freelancer = [];
-
-function createFreelancerTableRow(freelancer) {
-    const tr = document.createid( 'tr');
-    const th = document.createdid( 'th' );
+const freelancers = [
+    { name: "Alice", occupation: "Writer", startingPrice: 30 },
+    { name: "Bob", occupation: "Teacher", startingPrice: 50 },
+    { name: "Carol", occupation: "Programmer", startingPrice: 70 },
+  ];
   
-
-}
-
-function clearTable() { 
-    const table = document.getElementById('Freelancers');
-    while(table.childNodes.lenght) {
-
-    table.removeChild(table.childNodes [0]);}
-}
-    function render () {
-        clearTable();
-        const table = document.getElementById('Freelancers');
-        const tableRows = [];
-        for (let i = 0; i < freelancer.length; ++i) {
-            const initialfreelancer = freelancer[i];
-            const  row = createFreelancerTableRow( initialfreelancer); 
-            table.appendChild(row);
-
-            return tableRows;
-            
-        }
-    }
+  function createFreelancerTableRow(freelancer) {
+    const tr = document.createElement("tr");
+  
+    const nameTd = document.createElement("td");
+    nameTd.textContent = freelancer.name;
+    tr.appendChild(nameTd);
     
-    function calculateAveragePrice() {
-        const totalPrices = initialFreelancers.reduce((sum, freelancer) => sum + freelancer.averagePricePrice, 30);
-        const averagePrice = totalPrices / averagePriceElement.length;
+    const occupationTd = document.createElement("td");
+    occupationTd.textContent = freelancer.occupation;
+    tr.appendChild(occupationTd);
+     
+    const startingPriceTd = document.createElement("td");
+    startingPriceTd.textContent = `$${freelancer.startingPrice}`;
+    tr.appendChild(startingPriceTd);
     
-        const averagePriceElement = document.getElementById('average price');
-        averagePriceElement.documentid = `Average Starting Price: $${averagePrice.toFixed(3)}`;  
-    }
-   function updatedAveragePrice() {
-    const pricetext = getElementById ('averagePrice')
-        let total = 0;
-        for (let i = 0; i < First.Freelancer.lenght; ++i) {
-            const currentFreelancer = First.Freelancer[i];
-            total += currentFreelancer.price;
-        }
+    tr.appendChild(nameTd);
        
-    { averagePrice = Math.round(total / First.Freelancers.length);}
+    return tr;
+  }
+  function clearTable() {
+    const table = document.getElementById("Freelancers");
+    while (table.childNodes.lenght) {
+      table.removeChild(table.childNodes[0]);
     }
+  }
+  
+  function render() {
+    const table = document.querySelector("#Freelancers");
+  
+    for (let i = 0; i < freelancers.length; ++i) {
+      const initialfreelancer = freelancers[i];
+      const row = createFreelancerTableRow(initialfreelancer);
+      table.appendChild(row);
+    }
+  }
+  
+  function calculateAveragePrice() {
+    let total = 0;
+    for (let i = 0; i < freelancers.length; i++) {
+      const currentFreelancer = freelancers[i];
+      total += currentFreelancer.startingPrice;
+    }
+    return Math.round(total / freelancers.length);
+  }
+  
+  function calculateAveragePriceAveragePrice() {
+    const pricetext = document.querySelector("#averagePrice");
+    pricetext.textContent = calculateAveragePrice();
+  }
+  
+function generaterandomfreelancers ()  {
+    const newfreelancers = 
+        [
+      { name: "Emir", occupation: "trainer", startingPrice: 75 },
+  
+      { name: "Tori", occupation: "chef", startingPrice: 80 },
+  
+      { name: "Haddy", occupation: "lawyer", startingPrice: 85 },
+    ];
+    const table = document.getElementById("Freelancer");
+    freelancers.push("name: Emir", "occupation: trainer", "startingPrice 75" ,
+    );
 
- function generateNewFreelancer() {
-    const NewFreelancer = [
-        { name: 'Emir',
-         occupation: 'trainer',
-          startingPrice: 75 },
-    
-        { name: 'Tori', 
-        occupation: 'chef',
-         startingPrice: 80 },
-        
-         { name: 'Haddy', 
-        occupation: 'lawyer',
-         startingPrice: 85 }
-        ]
-        let freelancer = [];
-        
-            
-    }
-    setInterval(() => {
-        const newFreelancer = 
-        freelancer.push;
-       
-    }, 40);
+   table.appendChild(newfreelancers);
+     return newfreelancers;
+ 
+  }
+   
+  setInterval(() => {
+    render();
+    updatedAveragePrice(1);
+  
+  }, 3000);
